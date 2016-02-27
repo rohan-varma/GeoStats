@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$(".button").click(function(){
-    $("#timeline").html("yay");
+    $("#timeline").html("something else");
 });
 
 	 google.charts.load('current', {'packages':['geochart']});
@@ -45,10 +45,10 @@ $(document).ready(function(){
         chart.draw(data, options);
       };
 
-      function consoleLog(){
-      	alert("console logged");
-      }
-      consoleLog();
+      // function consoleLog(){
+      // 	alert("console logged");
+      // }
+      // consoleLog();
 
 
 
