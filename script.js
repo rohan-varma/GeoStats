@@ -1,7 +1,5 @@
 $(document).ready(function(){
-	
-
-google.charts.load('current', {'packages':['geochart']});
+	google.charts.load('current', {'packages':['geochart']});
       google.charts.setOnLoadCallback(drawRegionsMap);
 
       function drawRegionsMap() {
@@ -21,7 +19,13 @@ google.charts.load('current', {'packages':['geochart']});
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
         chart.draw(data, options);
+      };
+
+      function consoleLog(){
+      	alert("console logged");
       }
+      consoleLog();
+
 
 
 
