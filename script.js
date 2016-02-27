@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+
 	google.charts.load('current', {'packages':['geochart']});
       google.charts.setOnLoadCallback(drawRegionsMap);
 
@@ -14,7 +16,13 @@ $(document).ready(function(){
           ['RU', 700,1283]
         ]);
 
-        var options = {};
+        var options = {
+          region: '019', // Africa
+          colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
+          backgroundColor: '#81d4fa',
+          datalessRegionColor: '#f8bbd0',
+          defaultColor: '#f5f5f5',
+        };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
