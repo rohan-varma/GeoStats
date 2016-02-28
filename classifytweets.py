@@ -31,6 +31,7 @@ def clean(str):
 			new_str+=" "
 	return new_str
 
+#Gets rid of @user_name in the tweet
 def clean_handle(str):
 
 	while(str[0] != ' '):
@@ -49,6 +50,7 @@ def count_occurences(arr):
 			count[word] = count[word] + 1
 	return dict(count)
 
+#Gets the weight(popularity) of positive words 
 def get_weight_pos(x):
 	if x<=2:
 		return 1
@@ -59,6 +61,7 @@ def get_weight_pos(x):
 	else:
 		return 6.5
 
+#Gets the weight(popularity) of negative words
 # def get_weight_neg(x):
 # 	if x<=2:
 # 		return -1
