@@ -1,56 +1,79 @@
-$(document).ready(function(){
 
+//3.14159265
+
+$(document).ready(function(){
 	$(".button").click(function(){
     $("#timeline").html("something else");
+  
 });
+// Add the tiles to the map, and initialise the view in the middle of Europe
 
 	 google.charts.load('current', {'packages':['geochart']});
-      google.charts.setOnLoadCallback(drawRegionsMap);
+      google.charts.setOnLoadCallback(drawVisualization);
+      var fa = [
+    // ['State', 'Race distrubution', "median income "], //max is 3 x 3. TODO: Use interactive tutorial
+    // ['US-IL\nRace distribution: Whatever ', 200, 1],
+    // ['US-IN', 300, 22],
+    // ['US-IA', 20,456],
+    // ['US-RI', 150,0]
 
-      function drawRegionsMap() {
-        var data = google.visualization.arrayToDataTable([
-          ['Country',   'Latitude'],
-          ['Algeria', 36], ['Angola', -8], ['Benin', 6], ['Botswana', -24],
-          ['Burkina Faso', 12], ['Burundi', -3], ['Cameroon', 3],
-          ['Canary Islands', 28], ['Cape Verde', 15],
-          ['Central African Republic', 4], ['Ceuta', 35], ['Chad', 12],
-          ['Comoros', -12], ['Cote d\'Ivoire', 6],
-          ['Democratic Republic of the Congo', -3], ['Djibouti', 12],
-          ['Egypt', 26], ['Equatorial Guinea', 3], ['Eritrea', 15],
-          ['Ethiopia', 9], ['Gabon', 0], ['Gambia', 13], ['Ghana', 5],
-          ['Guinea', 10], ['Guinea-Bissau', 12], ['Kenya', -1],
-          ['Lesotho', -29], ['Liberia', 6], ['Libya', 32], ['Madagascar', null],
-          ['Madeira', 33], ['Malawi', -14], ['Mali', 12], ['Mauritania', 18],
-          ['Mauritius', -20], ['Mayotte', -13], ['Melilla', 35],
-          ['Morocco', 32], ['Mozambique', -25], ['Namibia', -22],
-          ['Niger', 14], ['Nigeria', 8], ['Republic of the Congo', -1],
-          ['Réunion', -21], ['Rwanda', -2], ['Saint Helena', -16],
-          ['São Tomé and Principe', 0], ['Senegal', 15],
-          ['Seychelles', -5], ['Sierra Leone', 8], ['Somalia', 2],
-          ['Sudan', 15], ['South Africa', -30], ['South Sudan', 5],
-          ['Swaziland', -26], ['Tanzania', -6], ['Togo', 6], ['Tunisia', 34],
-          ['Uganda', 1], ['Western Sahara', 25], ['Zambia', -15],
-          ['Zimbabwe', -18]
-        ]);
-
-        var options = {
-          region: '019', // Africa
-          colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
-        //  backgroundColor: '#81d4fa',
-          datalessRegionColor: '#f8bbd0',
-          defaultColor: '#f5f5f5',
-        };
-
+    ['State', 'median income '],
+['US-AL',42278],
+['US-AK',67629],
+['US-AZ',49254],
+['US-AR',44922],
+['US-CA',60487],
+['US-CO',60940],
+['US-CT',70161],
+['US-DE',57522],
+['US-FL',46140],
+['US-GA',49555],
+['US-HI',71223],
+['US-ID',53438],
+['US-IL',54916],
+['US-IN',48060],
+['US-IA',57810],
+['US-KS',53444],
+['US-KY',42786],
+['US-LA',42406],
+['US-ME',51710],
+['US-MD',76165],
+['US-MA',63151],
+['US-MI',52005],
+['US-MN',67244],
+['US-MS',35521],
+['US-MO',56630],
+['US-MT',51102],
+['US-NE',56870],
+['US-NV',49875],
+['US-NH',73397],
+['US-NJ',65243],
+['US-NM',46686],
+['US-NY',54310],
+['US-NC',46784],
+['US-ND',60730],
+['US-OH',49644],
+['US-OK',47199],
+['US-OR',58875],
+['US-PA',55173],
+['US-RI',58633],
+['US-SC',44929],
+['US-SD',53053],
+['US-TN',43716],
+['US-TX',53875],
+['US-UT',63383],
+['US-VT',60708],
+['US-VA',66155],
+['US-WA',59068],
+['US-WV',39552],
+['US-WI',58080],
+['US-WY',55690]
+  ]
+      function drawVisualization() {
+  var data = google.visualization.arrayToDataTable(fa);
         var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
-        chart.draw(data, options);
+        //chart.draw(data, options);
+          chart.draw(data, {width: 700, height: 700, region: "US", resolution: "provinces", background:"gray"});
+
       };
-
-      // function consoleLog(){
-      // 	alert("console logged");
-      // }
-      // consoleLog();
-
-
-
-
 });
